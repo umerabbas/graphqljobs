@@ -7,7 +7,7 @@ import Moment from "react-moment";
 class JobCard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { applied: false, tooltipOpen: false };
+    this.state = { applied: false };
     this.buttonClicked = this.buttonClicked.bind(this);
   }
 
@@ -24,8 +24,8 @@ class JobCard extends React.Component {
         <CardSubtitle tag="h6" className="mb-2 text-muted">
           {this.props.job.company.name}
         </CardSubtitle>
-        <CardText className="text-justify" onMouseEnter={() => this.setState({ tooltipOpen: true })} onMouseLeave={() => this.setState({ tooltipOpen: false })}>
-          {this.state.tooltipOpen ? this.props.job.description : this.props.job.description.trimEllip(175)}
+        <CardText className="text-justify">
+          {this.props.job.description.trimEllip(175)}
         </CardText>
         <CardText>
           <small className="text-muted">
