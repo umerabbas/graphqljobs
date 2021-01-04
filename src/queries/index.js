@@ -6,6 +6,23 @@ export const GQL_JOBS = gql`
     jobs {
       id
       title
+      slug
+      postedAt
+      company {
+        name
+        slug
+      }
+      userEmail
+      applyUrl
+      description
+    }
+  }
+`;
+export const GQL_JOB = gql`
+  query($companySlug: String!, $jobSlug: String!) {
+    job(input: {companySlug: $companySlug jobSlug: $jobSlug}) {
+      id
+      title
       postedAt
       company {
         name

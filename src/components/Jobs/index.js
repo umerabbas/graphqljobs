@@ -43,6 +43,7 @@ const Jobs = () => {
         <Input placeholder="type to search" onChange={(e)=>setSearch(e.target.value)}/>
       </InputGroup>
       <div className="border">
+        { filteredJobs.length ? "" : "No record found"}
         {filteredJobs.map((each) => (
           <JobCard key={each.id} job={each} />
         ))}
